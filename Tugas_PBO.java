@@ -1,7 +1,6 @@
-package Modul1;
 import java.util.Scanner;
 
-public class Tugas1 {
+public class Tugas_PBO {
     public static void main(String[] args) {
         String nama;
         String nim;
