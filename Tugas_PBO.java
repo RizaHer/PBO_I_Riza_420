@@ -1,11 +1,31 @@
 import java.util.Scanner;
 
+class Admin {
+    private String username = "admin420";
+    private String password = "password420";
+
+    public boolean login(String username, String password) {
+        return this.username.equals(username) && this.password.equals(password);
+    }
+}
+
+class Mahasiswa {
+    private String nama = "Riza";
+    private String nim = "202010370311420";
+
+    public boolean login(String nama, String nim) {
+        return this.nama.equals(nama) && this.nim.equals(nim);
+    }
+
+    public void identitas() {
+        System.out.println("nama: " + nama);
+        System.out.println("NIM: " + nim);
+    }
+}
+
 public class Tugas_PBO {
     public static void main(String[] args) {
-        String nama;
-        String nim;
-        String username;
-        String password;
+        String username, password, nama, nim;
         Scanner objInput = new Scanner(System.in);
 
         System.out.println("--- Sistem Login ---");
@@ -22,9 +42,11 @@ public class Tugas_PBO {
             System.out.print("Masukkan password: ");
             password = objInput.nextLine();
 
-            if (username.equals("admin420") & password.equals("password420")) {
+            Admin admin = new Admin();
+            if (admin.login(username, password)) {
                 System.out.println("Login admin berhasil!");
-            } else {
+            }
+            else {
                 System.out.println("Login gagal! Username atau password salah.");
             }
         }
@@ -34,10 +56,10 @@ public class Tugas_PBO {
             System.out.print("Masukkan NIM: ");
             nim = objInput.nextLine();
 
-            if (nama.equals("Riza Her") & nim.equals("202010370311420")) {
+            Mahasiswa mahasiswa = new Mahasiswa();
+            if (mahasiswa.login(nama, nim)) {
                 System.out.println("Login Mahasiswa berhasil!");
-                System.out.println("Nama: " + nama);
-                System.out.println("NIM: " + nim);
+                mahasiswa.identitas();
             } else {
                 System.out.println("Login gagal! Nama atau NIM salah.");
             }
